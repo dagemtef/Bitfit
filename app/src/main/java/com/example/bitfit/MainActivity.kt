@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         sleepRecyclerView.layoutManager = LinearLayoutManager(this)
 
 
-        /*lifecycleScope.launch(IO) {
+        lifecycleScope.launch(IO) {
             (application as SleepApplication).db.sleepDao().getAll().collect { databaseList ->
                 databaseList.map { entity ->
                     DisplaySleep(
@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
                     showAdapter.notifyDataSetChanged()
                 }
             }
-        }*/
+        }
 
 
         val wakeTime = findViewById<TextView>(R.id.wakeTimeInput)
@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
             sleeps.add(thisSleep)
             showAdapter.notifyDataSetChanged()
 
-            /*lifecycleScope.launch(Dispatchers.IO) {
+            lifecycleScope.launch(Dispatchers.IO) {
                 (application as SleepApplication).db.sleepDao().insert(
                     SleepEntity(
                         day = thisSleep.day,
@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
                         wakeTime = thisSleep.wakeTime
                     )
                 )
-            }*/
+            }
         }
     }
 }
